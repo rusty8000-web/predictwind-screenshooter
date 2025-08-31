@@ -1,0 +1,112 @@
+{
+  "title": "PredictWind Screenshooter Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "lat": {
+      "title": "Latitude",
+      "type": "number",
+      "default": 39.206933
+    },
+    "lon": {
+      "title": "Longitude",
+      "type": "number",
+      "default": 9.205533
+    },
+    "zoom": {
+      "title": "Map Zoom",
+      "type": "integer",
+      "default": 9,
+      "minimum": 1,
+      "maximum": 18
+    },
+    "models": {
+      "title": "Models",
+      "type": "array",
+      "editor": "stringList",
+      "description": "E.g., AROME, ECMWF (depends on region availability).",
+      "default": [
+        "AROME",
+        "ECMWF"
+      ]
+    },
+    "hours": {
+      "title": "Hours (local, 24h)",
+      "type": "array",
+      "editor": "numberList",
+      "default": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    "mode": {
+      "title": "Run Mode",
+      "type": "string",
+      "enum": [
+        "batch",
+        "hourly"
+      ],
+      "default": "batch",
+      "description": "\"batch\": capture all selected hours in one run (schedule once/day at 09:00). \"hourly\": capture only the current local hour (schedule hourly)."
+    },
+    "timezone": {
+      "title": "Timezone",
+      "type": "string",
+      "default": "Europe/Rome"
+    },
+    "urlTemplate": {
+      "title": "PredictWind URL Template",
+      "type": "string",
+      "default": "https://www.predictwind.com/weather-maps/?wind&lat={lat}&lon={lon}&zoom={zoom}"
+    },
+    "viewportWidth": {
+      "title": "Viewport width",
+      "type": "integer",
+      "default": 1600
+    },
+    "viewportHeight": {
+      "title": "Viewport height",
+      "type": "integer",
+      "default": 1000
+    },
+    "deviceScaleFactor": {
+      "title": "Device scale (DPR)",
+      "type": "integer",
+      "default": 2
+    },
+    "mapReadyWaitMs": {
+      "title": "Post-click wait (ms)",
+      "type": "integer",
+      "default": 2000
+    },
+    "clickSelectors": {
+      "title": "Click selectors",
+      "type": "object",
+      "properties": {
+        "wind": {
+          "type": "string",
+          "default": "button[aria-label=\"Wind\"]"
+        },
+        "model": {
+          "type": "string",
+          "default": "button[data-model=\"{MODEL}\"]"
+        },
+        "hour": {
+          "type": "string",
+          "default": ""
+        }
+      }
+    }
+  },
+  "required": [
+    "lat",
+    "lon"
+  ]
+}
