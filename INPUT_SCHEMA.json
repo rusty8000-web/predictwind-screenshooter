@@ -6,19 +6,15 @@
   "properties": {
     "lat": {
       "title": "Latitude",
-      "type": "number",
+      "type": "string",
       "description": "Decimal degrees",
-      "default": 39.206933,
-      "minimum": -90,
-      "maximum": 90
+      "default": "39.206933"
     },
     "lon": {
       "title": "Longitude",
-      "type": "number",
+      "type": "string",
       "description": "Decimal degrees",
-      "default": 9.205533,
-      "minimum": -180,
-      "maximum": 180
+      "default": "9.205533"
     },
     "zoom": {
       "title": "Map Zoom",
@@ -33,7 +29,6 @@
       "type": "array",
       "items": { "type": "string" },
       "editor": "stringList",
-      "description": "E.g., AROME, ECMWF (depends on region availability).",
       "default": ["AROME", "ECMWF"]
     },
     "hours": {
@@ -41,20 +36,15 @@
       "type": "array",
       "items": { "type": "number", "multipleOf": 1 },
       "editor": "numberList",
-      "default": [9, 10, 11, 12, 13, 14, 15, 16, 17]
+      "default": [9,10,11,12,13,14,15,16,17]
     },
     "mode": {
       "title": "Run Mode",
       "type": "string",
       "enum": ["batch", "hourly"],
-      "default": "batch",
-      "description": "\"batch\": capture all hours in one run (use daily 09:00 schedule). \"hourly\": capture only the current local hour (use hourly schedule)."
+      "default": "batch"
     },
-    "timezone": {
-      "title": "Timezone",
-      "type": "string",
-      "default": "Europe/Rome"
-    },
+    "timezone": { "title": "Timezone", "type": "string", "default": "Europe/Rome" },
     "urlTemplate": {
       "title": "PredictWind URL Template",
       "type": "string",
