@@ -4,8 +4,8 @@
   "description": "Takes screenshots of PredictWind wind maps at a given location, for AROME/ECMWF models, on a schedule.",
   "version": "1.0",
   "buildTag": "latest",
+  "dockerImage": "apify/actor-node-playwright-chromium:latest",
   "env": {
     "APIFY_DEFAULT_KEY_VALUE_STORE_ID": "predictwind-screenshots"
-  },
-  "dockerImage": "apify/actor-node-playwright-chromium"
+  }
 }
