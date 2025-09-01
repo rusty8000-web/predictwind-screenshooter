@@ -1,4 +1,5 @@
 {
+  "$schema": "https://schema.apify.com/input-schema-v1.json",
   "title": "PredictWind Screenshooter Input",
   "type": "object",
   "schemaVersion": 1,
@@ -7,20 +8,25 @@
       "title": "Latitude",
       "type": "number",
       "description": "Decimal degrees",
-      "default": 39.206933
+      "default": 39.206933,
+      "minimum": -90,
+      "maximum": 90
     },
     "lon": {
       "title": "Longitude",
       "type": "number",
       "description": "Decimal degrees",
-      "default": 9.205533
+      "default": 9.205533,
+      "minimum": -180,
+      "maximum": 180
     },
     "zoom": {
       "title": "Map Zoom",
-      "type": "integer",
+      "type": "number",
       "default": 9,
       "minimum": 1,
-      "maximum": 18
+      "maximum": 18,
+      "multipleOf": 1
     },
     "models": {
       "title": "Models",
@@ -33,7 +39,7 @@
     "hours": {
       "title": "Hours (local, 24h)",
       "type": "array",
-      "items": { "type": "integer" },
+      "items": { "type": "number", "multipleOf": 1 },
       "editor": "numberList",
       "default": [9, 10, 11, 12, 13, 14, 15, 16, 17]
     },
@@ -54,10 +60,10 @@
       "type": "string",
       "default": "https://www.predictwind.com/weather-maps/?wind&lat={lat}&lon={lon}&zoom={zoom}"
     },
-    "viewportWidth": { "title": "Viewport width", "type": "integer", "default": 1600 },
-    "viewportHeight": { "title": "Viewport height", "type": "integer", "default": 1000 },
-    "deviceScaleFactor": { "title": "Device scale (DPR)", "type": "integer", "default": 2 },
-    "mapReadyWaitMs": { "title": "Post-click wait (ms)", "type": "integer", "default": 2000 },
+    "viewportWidth":  { "title": "Viewport width",  "type": "number", "default": 1600, "multipleOf": 1 },
+    "viewportHeight": { "title": "Viewport height", "type": "number", "default": 1000, "multipleOf": 1 },
+    "deviceScaleFactor": { "title": "Device scale (DPR)", "type": "number", "default": 2, "multipleOf": 1 },
+    "mapReadyWaitMs": { "title": "Post-click wait (ms)", "type": "number", "default": 2000, "multipleOf": 1 },
     "clickSelectors": {
       "title": "Click selectors",
       "type": "object",
@@ -69,5 +75,6 @@
       "additionalProperties": false
     }
   },
-  "required": ["lat", "lon"]
+  "required": ["lat", "lon"],
+  "additionalProperties": false
 }
