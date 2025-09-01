@@ -6,11 +6,13 @@
     "lat": {
       "title": "Latitude",
       "type": "number",
+      "description": "Decimal degrees",
       "default": 39.206933
     },
     "lon": {
       "title": "Longitude",
       "type": "number",
+      "description": "Decimal degrees",
       "default": 9.205533
     },
     "zoom": {
@@ -23,38 +25,24 @@
     "models": {
       "title": "Models",
       "type": "array",
+      "items": { "type": "string" },
       "editor": "stringList",
       "description": "E.g., AROME, ECMWF (depends on region availability).",
-      "default": [
-        "AROME",
-        "ECMWF"
-      ]
+      "default": ["AROME", "ECMWF"]
     },
     "hours": {
       "title": "Hours (local, 24h)",
       "type": "array",
+      "items": { "type": "integer" },
       "editor": "numberList",
-      "default": [
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17
-      ]
+      "default": [9, 10, 11, 12, 13, 14, 15, 16, 17]
     },
     "mode": {
       "title": "Run Mode",
       "type": "string",
-      "enum": [
-        "batch",
-        "hourly"
-      ],
+      "enum": ["batch", "hourly"],
       "default": "batch",
-      "description": "\"batch\": capture all selected hours in one run (schedule once/day at 09:00). \"hourly\": capture only the current local hour (schedule hourly)."
+      "description": "\"batch\": capture all hours in one run (use daily 09:00 schedule). \"hourly\": capture only the current local hour (use hourly schedule)."
     },
     "timezone": {
       "title": "Timezone",
@@ -66,47 +54,20 @@
       "type": "string",
       "default": "https://www.predictwind.com/weather-maps/?wind&lat={lat}&lon={lon}&zoom={zoom}"
     },
-    "viewportWidth": {
-      "title": "Viewport width",
-      "type": "integer",
-      "default": 1600
-    },
-    "viewportHeight": {
-      "title": "Viewport height",
-      "type": "integer",
-      "default": 1000
-    },
-    "deviceScaleFactor": {
-      "title": "Device scale (DPR)",
-      "type": "integer",
-      "default": 2
-    },
-    "mapReadyWaitMs": {
-      "title": "Post-click wait (ms)",
-      "type": "integer",
-      "default": 2000
-    },
+    "viewportWidth": { "title": "Viewport width", "type": "integer", "default": 1600 },
+    "viewportHeight": { "title": "Viewport height", "type": "integer", "default": 1000 },
+    "deviceScaleFactor": { "title": "Device scale (DPR)", "type": "integer", "default": 2 },
+    "mapReadyWaitMs": { "title": "Post-click wait (ms)", "type": "integer", "default": 2000 },
     "clickSelectors": {
       "title": "Click selectors",
       "type": "object",
       "properties": {
-        "wind": {
-          "type": "string",
-          "default": "button[aria-label=\"Wind\"]"
-        },
-        "model": {
-          "type": "string",
-          "default": "button[data-model=\"{MODEL}\"]"
-        },
-        "hour": {
-          "type": "string",
-          "default": ""
-        }
-      }
+        "wind":  { "type": "string", "default": "button[aria-label=\"Wind\"]" },
+        "model": { "type": "string", "default": "button[data-model=\"{MODEL}\"]" },
+        "hour":  { "type": "string", "default": "" }
+      },
+      "additionalProperties": false
     }
   },
-  "required": [
-    "lat",
-    "lon"
-  ]
+  "required": ["lat", "lon"]
 }
