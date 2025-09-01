@@ -2,11 +2,10 @@
   "name": "predictwind-screenshooter-actor",
   "version": "1.0.0",
   "type": "module",
+  "scripts": { "start": "node main.js" },
+  "engines": { "node": ">=18" },
   "dependencies": {
     "apify": "^3.1.11",
     "playwright": "^1.47.0"
-  },
-  "scripts": {
-    "start": "node main.js"
   }
 }
